@@ -1,0 +1,59 @@
+{% extends 'accounts/main.html' %}
+
+{% load static %}
+
+{% block content %}
+<div class = "register-whole">
+    <img src="{% static 'images/register.png' %}" alt="logo" class="curvy">
+    <div class = "user">
+        <img src="{% static 'images/NPI.svg' %}" alt="logo" class="npilogo">
+        <form method="Post" class="form" action="{% url 'home' %}">
+            {% csrf_token %}
+            <div class="form__group">
+                <input type="user_type" name = "user_type" placeholder="User Type: Hospital | Nurse | Patient" class="form__input" />
+            </div>
+            <div class="form__group">
+                <input type="first_name" name = "first_name" placeholder="First Name" class="form__input" />
+            </div>
+            <div class="form__group">
+                <input type="last_name" name = "last_name" placeholder="Last Name" class="form__input" />
+            </div>
+            <div class="form__group">
+                <input type="email" name = "email" placeholder="E-mail" class="form__input" />
+            </div>
+            <div class="form__group">
+                <input type="username" name = "username" placeholder="Username" class="form__input" />
+            </div>
+            <div class="form__group">
+                <input type="password1" name = "password1" placeholder="Password" class="form__input" />
+            </div>
+            <div class="form__group">
+                <input type="password2" name = "password2" placeholder="Re-Enter Password" class="form__input" />
+            </div>
+            <input class = "btn" placeholder = "Register" type="Submit">
+        </form>
+    </div>
+</div>
+
+
+
+{% endblock %}
+
+
+<!--<div class="registration">-->
+<!--    <h3>register</h3>-->
+<!--    <div class="reg-container">-->
+<!--        <form method="Post" action="{% url 'home' %}">-->
+<!--            {% csrf_token %}-->
+<!--            <br>-->
+<!--            <input type="text" name = "first_name" placeholder="First Name"><br>-->
+<!--            <input type="text" name = "last_name" placeholder="Last Name"><br>-->
+<!--            <input type="text" name = "username" placeholder="Username"><br>-->
+<!--            <input type="email" name = "email" placeholder="email"><br>-->
+<!--            <input type="password" name = "password1" placeholder="password"><br>-->
+<!--            <input type="password" name = "password2" placeholder="confirm password"><br>-->
+<!--            <input type="Submit">-->
+
+<!--        </form>-->
+<!--    </div>-->
+<!--</div>-->

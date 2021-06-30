@@ -1,0 +1,28 @@
+{% load static %}
+
+<nav class="navbar">
+    <div class="navbar__container">
+        <a href="#home" id="navbar__logo">
+            <img src="{% static 'images/npi_logo.jpg' %}" alt="logo" class="logo">
+        </a>
+        <div class="navbar__toggle" id="mobile-menu">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </div>
+        <ul class="navbar__menu">
+            <li class="navbar__item">
+                <a href="{% url 'home' %}" class="navbar__links" id="home-page">Home</a>
+            </li>
+            <li class="navbar__item">
+                <a href="{% url 'register' %}" class="navbar__links" id="join-page">Join Us</a>
+            </li>
+            <li class="navbar__item">
+                <a href="{% url 'home' %}" class="navbar__links" id="contact-us">Contact Us</a>
+            </li>
+            <li class="navbar__item">
+                <a href="#log-in" class="navbar__links" id="log-in">Log In</a>
+            </li>
+        </ul>
+    </div>
+</nav>

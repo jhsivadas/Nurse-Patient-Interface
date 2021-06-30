@@ -1,0 +1,33 @@
+{% extends 'accounts/main.html' %}
+
+{% block content %}
+
+<div class="row">
+	<div class="col-md">
+		<div class="card card-body">
+			<table class="table table-sm">
+				<tr>
+					<th>ID</th>
+					<th>Name</th>
+					<th>Status</th>
+					<th>Recent Pain</th>
+				</tr>
+
+				{% for pat in patient %}
+				<tr>
+					<td>{{pat.id}}</td>
+					<td>{{pat.name}}</td>
+					<td>{{pat.status}}</td>
+					<td>{{p.phone}}</td>
+					<td><a class="btn btn-sm btn-info" href="">Update</a></td>
+
+					<td><a class="btn btn-sm btn-danger" href="">Delete</a></td>
+				</tr>
+                {% endfor %}
+
+			</table>
+		</div>
+	</div>
+</div>
+
+{% endblock %}

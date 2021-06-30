@@ -1,0 +1,106 @@
+{%  extends 'accounts/main.html' %}
+
+{% load static %}
+
+{% block content %}
+
+<div class="hero">
+    <div class="container">
+        <img src="{% static 'images/Iphone_ear.svg' %}" alt="iphone" class="iphone">
+        <h1>Connecting Nurses and Patients</h1> 
+        <p>Tracking Patient Wellness with a Click of a Button</p>
+    </div>
+</div>
+
+<div class="us-container">
+    <img src="{% static 'images/background_shape.svg' %}" alt="green-box" class="green-box">
+    <div class="us-content">
+        <h2>What We Do</h2>
+        <p>NPM provides nurses and patients with a way of tracking <br>
+        pain levels for patients taking painkillers supplying valuable <br>
+        information for healthcare providers on the levels and <br>
+        suggested times of dosage for painkillers.</p>
+        <img src="{% static 'images/new_pills.svg' %}" alt="pills" class="pills">
+    </div>
+</div>
+
+<div class="who-container">
+    <div class="who-content">
+        <ul class="people">
+            <h3>Who We Are</h3>
+        </ul>
+        <ul class="people">
+            <li>
+                <figure>
+                    <img src="{% static 'images/Sivadas_Jay.jpg' %}"
+                    alt="User testimonial picture" class="headshot">
+                    <blockquote>Jay Sivadas is a first year undergraduate at the University of Chicago
+                        studying Computer Science and Economics. He is also a member of the Varsity Baseball Team.
+                    </blockquote>
+                    <figcaption>- Jay Sivadas</figcaption>
+                </figure>
+            </li>
+            <li>
+                <figure>
+                    <img src="{% static 'images/mathew.JPG' %}"
+                    alt="User testimonial picture" class="headshot">
+                    <blockquote>Matthew Akuzawa is a first year undergraduate 
+                        student at the University of Chicago majoring in 
+                        Mathematics with a specialization in Economics</blockquote>
+                    <figcaption>- Matthew Aku</figcaption>
+                </figure>
+            </li>
+            <li>
+                <figure>
+                    <img src="{% static 'images/aarthi.JPG' %}"
+                    alt="User testimonial picture" class="headshot">
+                    <blockquote>Aarthi Koripelly is a first-year undergraduate student at the University of Chicago 
+                        majoring in Computer Science with a specialization in Machine Learning. </blockquote>
+                    <figcaption>- Aarthi</figcaption>
+                </figure>
+            </li>
+        </ul>
+        <!-- Row 2 -->
+        <ul class="second-row">
+            <li>
+                <figure>
+                    <img src="{% static 'images/bradley.JPG' %}"
+                    alt="User testimonial picture" class="headshot2">
+                    <blockquote>Bradley Yu is a first year undergraduate student at 
+                        the University of Chicago majoring in Computational and Applied Math and Economics.
+                        He is also a member of the Varsity Tennis Team.
+                    </blockquote>
+                    <figcaption>- Bradley</figcaption>
+                </figure>
+            </li>
+            <li>
+                <figure>
+                    <img src="{% static 'images/cat.jpeg' %}" 
+                    alt="User testimonial picture" class="headshot2">
+                    <blockquote>Max Chou is a first year undergraduate student at the University of Chicago
+                        studying Economics and Computer Science. 
+                        He is also a member of the Varsity Baseball Team.
+                    </blockquote>
+                    <figcaption>- Max</figcaption>
+                </figure>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<div class="footer-container" id="contact">
+    <div class="container">
+        <!-- List of links going to the same address -->
+        <a href="#">
+            <img src="{% static 'images/matthew.jpg' %}" class="logo" alt="logo">
+        </a>
+        <p class="address">5801 S Ellis Ave,<br> Chicago, IL 60637 <br>USA</p>
+        <ul class="footer-links">
+            <li><a href="mailto: npiassistuc@gmail.com">Contact Us</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+        </ul>
+    </div>
+</div>
+
+
+{% endblock %}
