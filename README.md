@@ -4,6 +4,7 @@ Created a Web Application and Database System using Python and Django for facili
 
 - python manage.py runserver in napp_django to run local site application. 
 
-Technologies Used: Python, Django, Django REST Framework, SQL, HTML, CSS, JavaScript.
+Technologies Used: Python, Django, REST, SQL, HTML, CSS, JavaScript.
+Technologies Used for IOS Application: Swift
 
 
