@@ -6,7 +6,6 @@
     <title>Napp</title>
 
     <link rel="stylesheet" type="text/css" href="{% static '/css/main.css' %}">
-	<link rel="stylesheet" href="../../../static/css/main.css">
 
 </head>
 <body>
@@ -36,40 +35,12 @@
 			</ul>
 		</div>
 	</nav>
-<!--	<p>Note: For security purposes you will be logged out if you leave this page</p>-->
-<!--	<p>{{email}}</p>-->
-
-
+	<h1>Note: For security purposes you will be logged out if you leave this page</h1>
 	<div class="row">
 		<div class="col-md">
 			<div class="card card-body">
+                <p>{{email}}</p>
 
-				<table class="content-table">
-					<thead>
-					  <tr>
-						  <th>Patient ID</th>
-						  <th>Name</th>
-						  <th>Status</th>
-						  <th>Phone Number</th>
-						  <th>Recent Pain</th>
-						  <th>Update Patient</th>
-						  <th>Add Patient</th>
-						  <th>Delete Patient</th
-					  </tr>
-					</thead>
-					<tbody>
-					{% for pat in patient %}
-					  <tr>
-						<td>{{pat.id}}</td>
-						<td>{{pat.name}}</td>
-						<td>{{pat.status}}</td>
-						<td>{{p.phone}}</td>
-						  <td>{{p.pain}}</td>
-						  <td><a class="add-btn" href="{% url 'addpatient' %}">Add</a></td>
-						<td><a class="update-btn" href="">Update</a></td>
-						<td><a class="delete-btn" href="">Delete</a></td>
-					  </tr>
-					{% endfor %}
 			</div>
 		</div>
 	</div>

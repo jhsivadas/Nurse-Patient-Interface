@@ -1,0 +1,119 @@
+{% extends 'accounts/main.html' %}
+
+{% load static %}
+
+{% block content %}
+{% extends 'accounts/main.html' %}
+
+{% load static %}
+
+{% block content %}
+
+<body>
+
+  <div class="login">
+    <div class="login-screen">
+      <div class="app-title">
+        <h1>Login</h1>
+      </div>
+
+      <form method="POST" class="login-form" action="">
+          {% csrf_token %}
+        <div class="control-group">
+            {{form.email}}
+        </div>
+
+        <div class="control-group">
+            {{form.password}}
+        </div>
+
+          {% if failed %}
+            <p class="failed">Invalid Email or Password</p>
+          {% endif %}
+
+
+
+        <input type="submit" class="btn btn-primary btn-large btn-block" value="Sign in">
+      </form>
+    </div>
+  </div>
+</body>
+
+
+
+
+<!--<form method="GET" class="form" action="{% url 'home' %}">-->
+<!--    <div class="login-box">-->
+<!--        <h1>Login</h1>-->
+<!--        <div class="textbox">-->
+<!--        <i class="fas fa-user"></i>-->
+<!--        <input type="text" placeholder="Username">-->
+<!--        </div>-->
+
+<!--        <div class="textbox">-->
+<!--        <i class="fas fa-lock"></i>-->
+<!--        <input type="password" placeholder="Password">-->
+<!--        </div>-->
+
+<!--        <input type="submit" class="btn btn-primary btn-large btn-block" value="Sign in">-->
+<!--    </div>-->
+<!--</form>-->
+
+
+
+
+{% endblock %}
+<body>
+
+  <div class="login">
+    <div class="login-screen">
+      <div class="app-title">
+        <h1>Login</h1>
+      </div>
+
+      <form method="POST" class="login-form" action="">
+          {% csrf_token %}
+        <div class="control-group">
+            {{form.email}}
+        </div>
+
+        <div class="control-group">
+            {{form.password}}
+        </div>
+
+          {% if failed %}
+            <p class="failed">Invalid Email or Password</p>
+          {% endif %}
+
+
+
+        <input type="submit" class="btn btn-primary btn-large btn-block" value="Sign in">
+      </form>
+    </div>
+  </div>
+</body>
+
+
+
+
+<!--<form method="GET" class="form" action="{% url 'home' %}">-->
+<!--    <div class="login-box">-->
+<!--        <h1>Login</h1>-->
+<!--        <div class="textbox">-->
+<!--        <i class="fas fa-user"></i>-->
+<!--        <input type="text" placeholder="Username">-->
+<!--        </div>-->
+
+<!--        <div class="textbox">-->
+<!--        <i class="fas fa-lock"></i>-->
+<!--        <input type="password" placeholder="Password">-->
+<!--        </div>-->
+
+<!--        <input type="submit" class="btn btn-primary btn-large btn-block" value="Sign in">-->
+<!--    </div>-->
+<!--</form>-->
+
+
+
+
+{% endblock %}

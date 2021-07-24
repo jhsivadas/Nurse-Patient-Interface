@@ -11,3 +11,4 @@ admin.site.register(Hospital)
 admin.site.register(Pain)
 admin.site.register(Medication)
 admin.site.register(times)
+

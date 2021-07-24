@@ -1,0 +1,71 @@
+{% extends 'accounts/main.html' %}
+
+{% load static %}
+
+{% block content %}
+
+ <div class="login">
+    <div class="login-screen">
+      <div class="app-title">
+        <h1>Select User Type</h1>
+      </div>
+
+      <form method="GET" class="login-form" action="{% url 'home' %}">
+        <div class="control-group">
+            <a class="ll" href="{% url 'hospitallogin' %}">Hospital</a>
+        </div>
+
+        <div class="control-group">
+            <a class="ll" href="{% url 'patientlogin' %}">Patient</a>
+        </div>
+
+        <div class="control-group">
+            <a class="ll" href="{% url 'nurselogin' %}">Nurse</a>
+        </div>
+      </form>
+    </div>
+  </div>
+
+
+
+
+<!--<div class="outer">-->
+<!--    <h1>Select which one you are to Login</h1>-->
+<!--    <div class="container-login">-->
+<!--       <div class="link-login">-->
+<!--           <a class="ll" href="{% url 'hospitallogin' %}">Hospital</a>-->
+<!--       </div>-->
+<!--       <div class="link-login">-->
+<!--           <a class="ll" href="{% url 'patientlogin' %}">Patient</a>-->
+<!--       </div>-->
+<!--       <div class="link-login">-->
+<!--           <a class="ll" href="{% url 'nurselogin' %}">Nurse</a>-->
+<!--       </div>-->
+<!--    </div>-->
+<!--</div>-->
+
+
+
+
+
+<!--<form method="GET" class="form" action="{% url 'home' %}">-->
+<!--    <div class="login-box">-->
+<!--        <h1>Login</h1>-->
+<!--        <div class="textbox">-->
+<!--        <i class="fas fa-user"></i>-->
+<!--        <input type="text" placeholder="Username">-->
+<!--        </div>-->
+
+<!--        <div class="textbox">-->
+<!--        <i class="fas fa-lock"></i>-->
+<!--        <input type="password" placeholder="Password">-->
+<!--        </div>-->
+
+<!--        <input type="submit" class="btn btn-primary btn-large btn-block" value="Sign in">-->
+<!--    </div>-->
+<!--</form>-->
+
+
+
+
+{% endblock %}

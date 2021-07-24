@@ -2,26 +2,106 @@ from django.shortcuts import render, redirect
 from django.http import HttpResponse, JsonResponse
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import login, authenticate
-from .forms import SignUpForm
 # Create your views here.
+from .forms import *
 from .models import *
 from rest_framework import viewsets
 from .serializer import *
+from django.contrib import messages
 
-def registerPage(request):
-    form = SignUpForm(request.POST)
+def addPatient(request):
+    email = request.session['email']
+    context = {'email': email}
+    return render(request, 'accounts/addpatient.html', context)
+
+# Make 3 login pages for nurse patients and hospitals
+def nurseLogin(request):
+    form = NurseLoginForm()
     if form.is_valid():
         form.save()
-        username = form.cleaned_data.get('username')
-        password = form.cleaned_data.get('password1')
-        user = authenticate(username=username, password=password)
-        login(request, user)
-        user.save()
-        return redirect('home')
-    else:
-        form = SignUpForm()
-    return render(request, 'accounts/register.html')
+    if request.method == 'POST':
+        email = request.POST.get('email')
+        password = request.POST.get('password')
+        obj = Nurse.objects.filter(email=email).exists()
+        pass_check = Nurse.objects.filter(password=password).exists()
 
+        if obj and pass_check:
+            request.session['email'] = email
+            return redirect('/nurse/')
+        else:
+            return render(request, 'accounts/nurselogin.html', {'form':form, 'failed':True})
+    else:
+        return render(request, 'accounts/nurselogin.html', {'form':form, 'failed':False})
+
+def patientLogin(request):
+    form = PatientLoginForm()
+    if form.is_valid():
+        form.save()
+    if request.method == 'POST':
+        email = request.POST.get('email')
+        password = request.POST.get('password')
+        obj = Patient.objects.filter(email=email).exists()
+        pass_check = Patient.objects.filter(password=password).exists()
+
+        if obj and pass_check:
+            request.session['email'] = email
+            return redirect('/patient/')
+        else:
+            return render(request, 'accounts/patientlogin.html', {'form':form, 'failed':True})
+    return render(request, 'accounts/patientlogin.html', {'form':form, 'failed':False})
+
+def hospitalLogin(request):
+    form = HospitalLoginForm()
+    if form.is_valid():
+        form.save()
+    if request.method == 'POST':
+        email = request.POST.get('email')
+        password = request.POST.get('password')
+        obj = Hospital.objects.filter(email=email).exists()
+        pass_check = Hospital.objects.filter(password=password).exists()
+
+        if obj and pass_check:
+            request.session['email'] = email
+            return redirect('/hospital/')
+        else:
+            return render(request, 'accounts/hospitallogin.html', {'form': form, 'failed': True})
+    return render(request, 'accounts/hospitallogin.html', {'form': form, 'failed': False})
+
+def chooseLogin(request):
+    return render(request, 'accounts/chooselogin.html')
+
+
+# Check if form submission is valid
+    # form = CreateUserForm()
+
+    # if request.method == 'Get':
+    #     form = CreateUserForm(request.Get)
+    #     if form.is_valid():
+    #         form.save()
+    # context = {'form':form}
+
+def home(request):
+    return render(request, 'accounts/home.html')
+
+def nurse(request):
+    patient = Patient.objects.all()
+    pain = Pain.objects.all()
+    email = request.session['email']
+    context = {'patient' : patient, 'email':email}
+    return render(request, 'accounts/nurse.html', context)
+
+def patient(request):
+    email = request.session['email']
+    context = {'email':email}
+    return render(request, 'accounts/patient.html', context)
+
+def hospital(request):
+    email = request.session['email']
+    context = {'email':email}
+    return render(request, 'accounts/hospital.html', context)
+
+def apiview(request):
+    return HttpResponse("API VIEW")
 
 class HospitalViewSet(viewsets.ModelViewSet):
     queryset = Hospital.objects.all().order_by('name')
@@ -46,46 +126,3 @@ class MedicationViewSet(viewsets.ModelViewSet):
 class TimeViewSet(viewsets.ModelViewSet):
     queryset = times.objects.all().order_by('name')
     serializer_class = TimeSerializer
-
-
-    # form = CreateUserForm()
-
-    # Takes in form data/user registration
-    # if request.method == 'POST':
-    #     options = request.POST['options']
-    #     first_name = request.POST['first_name']
-    #     last_name = request.POST['last_name']
-    #     username = request.POST['username']
-    #     email = request.POST['email']
-    #     password1 = request.POST['password1']
-    #     password2 = request.POST['password2']
-    #     if (password1 != password2):
-    #         print("Passwords do not match")
-    #     elif (User.objects.filter(username=username).exists()):
-    #         print("Username is taken")
-    #     elif (User.objects.filter(email=email).exists()):
-    #         print("Email is taken")
-    #     else:
-    #         user = User.objects.create_user(options=options, first_name = first_name,
-    #         last_name = last_name, username = username, email = email,
-    #         password1 = password1, password2 = password2)
-    #
-    #
-    #     user.save()
-    #     return redirect('/')
-        # form = CreateUserForm(request.POST)
-        # if form.is_valid:
-        #     form.save()
-
-
-def home(request):
-    return render(request, 'accounts/home.html')
-
-def nurse(request):
-    patient = Patient.objects.all()
-    pain = Pain.objects.all()
-    context = {'patient' : patient}
-    return render(request, 'accounts/nurse.html', context)
-
-def apiview(request):
-    return HttpResponse("API VIEW")

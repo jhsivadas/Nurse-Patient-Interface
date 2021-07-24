@@ -1,0 +1,40 @@
+{% extends 'accounts/main.html' %}
+
+{% load static %}
+
+{% block content %}
+
+<body>
+
+  <div class="login">
+    <div class="login-screen">
+      <div class="app-title">
+        <h1>Login</h1>
+      </div>
+        <p>{{email}}</p>
+
+      <form method="POST" class="login-form" action="">
+          {% csrf_token %}
+        <div class="control-group">
+        </div>
+
+        <div class="control-group">
+        </div>
+
+          {% if failed %}
+            <p class="failed">Invalid Email or Password</p>
+          {% endif %}
+
+
+
+        <input type="submit" class="btn btn-primary btn-large btn-block" value="Sign in">
+      </form>
+    </div>
+  </div>
+</body>
+
+
+
+
+
+{% endblock %}

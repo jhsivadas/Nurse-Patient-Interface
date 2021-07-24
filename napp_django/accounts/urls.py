@@ -13,7 +13,13 @@ router.register(r'times', views.TimeViewSet)
 urlpatterns = [
     path('', views.home, name = "home"),
     path('nurse/', views.nurse, name = "nurse"),
-    path('register/', views.registerPage, name = "register"),
+    path('patient/', views.patient, name = "patient"),
+    path('hospital/', views.hospital, name = "hospital"),
+    path('nurselogin/', views.nurseLogin, name = "nurselogin"),
+    path('patientlogin/', views.patientLogin, name = "patientlogin"),
+    path('hospitallogin/', views.hospitalLogin, name = "hospitallogin"),
+    path('addpatient/', views.addPatient, name = "addpatient"),
+    path('choose/', views.chooseLogin, name = "chooselogin"),
     path('api/', include(router.urls)),
     path('api-auth/', include('rest_framework.urls', namespace='rest_framework'))
 ]
